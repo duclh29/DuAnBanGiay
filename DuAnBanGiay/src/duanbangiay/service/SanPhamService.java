@@ -4,10 +4,22 @@
  */
 package duanbangiay.service;
 
+import duanbangiay.domainmodel.SanPham;
+import java.util.ArrayList;
+
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public interface SanPhamService {
-    
+
+    ArrayList<SanPham> getAll();
+
+    String add(SanPham sanPham);
+
+    String delete(String id);
+
+    String update(String id, SanPham sanPham);
+
+    ArrayList<SanPham> find(String ten);
 }
