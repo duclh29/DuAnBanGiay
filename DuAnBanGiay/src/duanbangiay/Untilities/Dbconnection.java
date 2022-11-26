@@ -14,22 +14,18 @@ import java.sql.SQLException;
  */
 public class Dbconnection {
 
-    public static final String HOSTNAME = "DESKTOP-H3MM9AV\\SQLEXPRESS";
+     public static final String HOSTNAME = "localhost";
     public static final String PORT = "1433";
-    public static final String DBNAME = "QL_BAN_GIAY_ADIDAS";
-    public static final String USERNAME = "sa";
-    public static final String PASSWORD = "lehuynhduc29";
+    public static final String DBNAME = "QL_BAN_GIAY_ADIDAS"; // điền tên dtb vào đây
+    public static final String USERNAME = "sa"; // điền tài khoản vào đây
+    public static final String PASSWORD = ""; // điền mật khẩu vào đây
 
-    /**
-     * Get connection to MSSQL Server
-     *
-     * @return Connection
-     */
     public static Connection getConnection() {
 
         // Create a variable for the connection string.
         String connectionUrl = "jdbc:sqlserver://" + HOSTNAME + ":" + PORT + ";"
-                + "databaseName=" + DBNAME + ";encrypt=true;trustservercertificate=true;";;
+                + "databaseName=" + DBNAME;
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             return DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
@@ -39,10 +35,8 @@ public class Dbconnection {
         }
         return null;
     }
-
     public static void main(String[] args) {
-        // TODO code application logic here
-        getConnection();
+        System.out.println(getConnection());
     }
     
 }
